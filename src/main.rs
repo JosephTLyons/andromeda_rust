@@ -41,7 +41,6 @@ fn create_alphabet_vector (number: bool, uppercase: bool, lowercase: bool) -> Ve
         }
     }
 
-
     return v;
 }
 
