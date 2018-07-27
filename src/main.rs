@@ -2,8 +2,9 @@ extern crate rand;
 
 use rand::prelude::*;
 
-fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32) {
-    let mut alphabet_vector: Vec<u8> = create_alphabet_vector (false, false, true);
+fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
+                            number: bool, uppercase: bool, lowercase: bool) {
+    let mut alphabet_vector: Vec<u8> = create_alphabet_vector (number, uppercase, lowercase);
 
     // for x in 0..number_of_serials {
     //     serial_vector.push (create_alphabet_vector());
@@ -45,5 +46,5 @@ fn create_alphabet_vector (number: bool, uppercase: bool, lowercase: bool) -> Ve
 }
 
 fn main() {
-    generate_serial_numbers (100, 8);
+    generate_serial_numbers (100, 8, true, true, true);
 }
