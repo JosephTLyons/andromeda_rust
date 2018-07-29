@@ -5,11 +5,11 @@ use rand::prelude::*;
 fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
                             number: bool, uppercase: bool, lowercase: bool) {
     let mut values_vector: Vec<u8> = create_values_vector (number, uppercase, lowercase);
-    let mut serial_numbers_vector: Vec<Vec<u8>> = Vec::new();
+    let mut vector_of_values_vector: Vec<Vec<u8>> = Vec::new();
 
     for x in 0..length_of_serial {
         thread_rng().shuffle (&mut values_vector);
-        serial_numbers_vector.push (values_vector.clone());
+        vector_of_values_vector.push (values_vector.clone());
     }
 
     // Algorithm to cycle through the vectors and print each serial to a file
@@ -44,6 +44,10 @@ fn create_values_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<
     }
 
     return v;
+}
+
+fn print_serial_numbers_to_file (vector_of_values_vector: Vec<Vec<u8>>) {
+
 }
 
 fn main() {
