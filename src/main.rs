@@ -59,15 +59,18 @@ fn print_serial_numbers_to_file (number_of_serials: u64, vector_of_character_vec
     // This isn't the correct algorithm, algorith should be able to print all values, this is just temp
 
     if total_possible_combinations < number_of_serials {
-        println!("Error, can't generate this number of unique serials with the chosen characters.  Either increase the variety of characters or decrease the number of serial numbers.")
+        println!("You are requesting {} unique licenses, but only {} unique licenses can be generated given the inputs; either allow for a larger variety of characters to be used in serial numbers or decrease the amount of serial numbers to be generated.", number_of_serials, total_possible_combinations);
     }
 
     else {
         for x in 0..vector_of_character_vectors[0].len() {
-            print!("{}) ", x);
+            print!("{}) ", x);  // Remove this line after complete
+
+            // Print one serial number
             for y in 0..vector_of_character_vectors.len() {
                 print!("{}", vector_of_character_vectors[y][x] as char);
             }
+
             println!();
         }
     }
@@ -85,5 +88,5 @@ fn print_serial_numbers_to_file (number_of_serials: u64, vector_of_character_vec
 }
 
 fn main() {
-    generate_serial_numbers (1000, 4, true, true, true);
+    generate_serial_numbers (1000, 2, true, false, false);
 }
