@@ -51,13 +51,12 @@ fn print_serial_numbers_to_file (number_of_serials: u64, vector_of_character_vec
     let total_possible_combinations: u64 = i64::pow (vector_of_character_vectors[0].len() as i64,
                                                      vector_of_character_vectors.len() as u32) as u64;
 
-    // This isn't the correct algorithm, algorith should be able to print all values, this is just temp
-
     if total_possible_combinations < number_of_serials {
         println!("You are requesting {} unique licenses, but only {} unique licenses can be generated given the inputs; either allow for a larger variety of characters to be used in serial numbers or decrease the amount of serial numbers to be generated.", number_of_serials, total_possible_combinations);
     }
 
     else {
+        // This isn't the correct algorithm, algorith should be able to print all values, this is just temp
         for x in 0..vector_of_character_vectors[0].len() {
             print!("{}) ", x);  // Remove this line after complete
 
@@ -69,19 +68,8 @@ fn print_serial_numbers_to_file (number_of_serials: u64, vector_of_character_vec
             println!();
         }
     }
-
-    //let mut index_vector = vec![0; vector_of_character_vectors.len()];
-
-    //print_vector (index_vector);
-
-    // for x in 0..vector_of_character_vectors.len() {
-    //     for x in 0..vector_of_character_vectors[x] {
-    //
-    //     }
-    // }
-    // Use length of vector_of_character_vectors in for loop to move across vectors and then an inner loop for each vector
 }
 
 fn main() {
-    generate_serial_numbers (1000, 2, true, false, false);
+    generate_serial_numbers (100, 16, true, true, true);
 }
