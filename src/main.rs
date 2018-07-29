@@ -51,11 +51,6 @@ fn print_serial_numbers_to_file (number_of_serials: u64, vector_of_character_vec
     let total_possible_combinations: u64 = i64::pow (vector_of_character_vectors[0].len() as i64,
                                                      vector_of_character_vectors.len() as u32) as u64;
 
-    // println! ("{} total combinations possible with serial numbers of length {} with {} characters choices",
-    //           total_possible_combinations,
-    //           vector_of_character_vectors.len(),
-    //           vector_of_character_vectors[0].len());
-
     // This isn't the correct algorithm, algorith should be able to print all values, this is just temp
 
     if total_possible_combinations < number_of_serials {
