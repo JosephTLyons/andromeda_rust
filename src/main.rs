@@ -2,7 +2,7 @@ extern crate rand;
 
 use rand::prelude::*;
 
-fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
+fn generate_serial_numbers (number_of_serials: u64, length_of_serial: u64,
                             number: bool, uppercase: bool, lowercase: bool) {
     let mut character_vector: Vec<u8> = create_values_vector (number, uppercase, lowercase);
     let mut vector_of_character_vectors: Vec<Vec<u8>> = Vec::new();
@@ -46,10 +46,10 @@ fn create_values_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<
     return v;
 }
 
-fn print_serial_numbers_to_file (number_of_serials: u32, vector_of_character_vectors: Vec<Vec<u8>>) {
+fn print_serial_numbers_to_file (number_of_serials: u64, vector_of_character_vectors: Vec<Vec<u8>>) {
 
-    let total_possible_combinations: i64 = i64::pow (vector_of_character_vectors[0].len() as i64,
-                                                     vector_of_character_vectors.len() as u32);
+    let total_possible_combinations: u64 = i64::pow (vector_of_character_vectors[0].len() as i64,
+                                                     vector_of_character_vectors.len() as u32) as u64;
 
     // println! ("{} total combinations possible with serial numbers of length {} with {} characters choices",
     //           total_possible_combinations,
