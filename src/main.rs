@@ -48,13 +48,22 @@ fn create_values_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<
 
 fn print_serial_numbers_to_file (vector_of_character_vectors: Vec<Vec<u8>>) {
 
-    let total_possible_combinations: i64 = i64::pow (vector_of_character_vectors[0].len() as i64,
-                                                     vector_of_character_vectors.len() as u32);
+    // let total_possible_combinations: i64 = i64::pow (vector_of_character_vectors[0].len() as i64,
+    //                                                  vector_of_character_vectors.len() as u32);
+    //
+    // println! ("{} total combinations possible with serial numbers of length {} with {} characters choices",
+    //           total_possible_combinations,
+    //           vector_of_character_vectors.len(),
+    //           vector_of_character_vectors[0].len());
 
-    println! ("{} total combinations possible with serial numbers of length {} with {} characters choices",
-              total_possible_combinations,
-              vector_of_character_vectors.len(),
-              vector_of_character_vectors[0].len());
+    // This isn't the correct algorithm, algorith should be able to print all values, this is just temp
+
+    for x in 0..vector_of_character_vectors[0].len() {
+        for y in 0..vector_of_character_vectors.len() {
+            print!("{}", vector_of_character_vectors[y][x] as char);
+        }
+        println!();
+    }
 
     //let mut index_vector = vec![0; vector_of_character_vectors.len()];
 
@@ -69,5 +78,5 @@ fn print_serial_numbers_to_file (vector_of_character_vectors: Vec<Vec<u8>>) {
 }
 
 fn main() {
-    generate_serial_numbers (100, 4, true, true, true);
+    generate_serial_numbers (1000, 4, true, true, true);
 }
