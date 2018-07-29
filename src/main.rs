@@ -5,8 +5,9 @@ use rand::prelude::*;
 fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
                             number: bool, uppercase: bool, lowercase: bool) {
     let mut values_vector: Vec<u8> = create_values_vector (number, uppercase, lowercase);
+    let mut serial_numbers_vector Vec<Vec<u8>>;
 
-    // for x in 0..number_of_serials {
+    // for x in 0..length_of_serial {
     //     serial_vector.push (create_values_vector());
     // }
 
