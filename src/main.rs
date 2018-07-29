@@ -10,7 +10,6 @@ fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
     //     serial_vector.push (create_values_vector());
     // }
 
-    let mut rng = thread_rng();
     thread_rng().shuffle (&mut values_vector);
     print_vector (values_vector);
 }
@@ -46,5 +45,5 @@ fn create_values_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<
 }
 
 fn main() {
-    generate_serial_numbers (100, 8, true, false, false);
+    generate_serial_numbers (100, 8, true, true, true);
 }
