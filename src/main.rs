@@ -11,8 +11,11 @@ fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
         thread_rng().shuffle (&mut values_vector);
         serial_numbers_vector.push (values_vector.clone());
     }
+
+    // Algorithm to cycle through the vectors and print each serai to a file
 }
 
+// Delete this when done
 fn print_vector (vec: Vec<u8>) {
     for x in 0..vec.len() {
         println! ("{}", vec[x] as char);
