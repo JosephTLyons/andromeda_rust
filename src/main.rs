@@ -5,14 +5,12 @@ use rand::prelude::*;
 fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
                             number: bool, uppercase: bool, lowercase: bool) {
     let mut values_vector: Vec<u8> = create_values_vector (number, uppercase, lowercase);
-    let mut serial_numbers_vector: Vec<Vec<u8>>;
+    let mut serial_numbers_vector: Vec<Vec<u8>> = Vec::new();
 
-    // for x in 0..length_of_serial {
-    //     serial_vector.push (create_values_vector());
-    // }
-
-    thread_rng().shuffle (&mut values_vector);
-    print_vector (values_vector);
+    for x in 0..length_of_serial {
+        thread_rng().shuffle (&mut values_vector);
+        serial_numbers_vector.push (values_vector.clone());
+    }
 }
 
 fn print_vector (vec: Vec<u8>) {
