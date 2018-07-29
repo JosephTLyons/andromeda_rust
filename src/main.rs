@@ -12,7 +12,7 @@ fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
         vector_of_values_vector.push (values_vector.clone());
     }
 
-    // Algorithm to cycle through the vectors and print each serial to a file
+    print_serial_numbers_to_file (vector_of_values_vector);
 }
 
 // Delete this when done
@@ -48,8 +48,26 @@ fn create_values_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<
 
 fn print_serial_numbers_to_file (vector_of_values_vector: Vec<Vec<u8>>) {
 
+    let total_possible_combinations: i64 = i64::pow (vector_of_values_vector[0].len() as i64,
+                                                     vector_of_values_vector.len() as u32);
+
+    println! ("{} total combinations possible with serial numbers of length {} with {} characters choices",
+              total_possible_combinations,
+              vector_of_values_vector.len(),
+              vector_of_values_vector[0].len());
+
+    //let mut index_vector = vec![0; vector_of_values_vector.len()];
+
+    //print_vector (index_vector);
+
+    // for x in 0..vector_of_values_vector.len() {
+    //     for x in 0..vector_of_values_vector[x] {
+    //
+    //     }
+    // }
+    // Use length of vector_of_values_vector in for loop to move across vectors and then an inner loop for each vector
 }
 
 fn main() {
-    generate_serial_numbers (100, 8, true, true, true);
+    generate_serial_numbers (100, 4, true, true, true);
 }
