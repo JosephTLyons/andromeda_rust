@@ -4,12 +4,12 @@ use rand::prelude::*;
 
 fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
                             number: bool, uppercase: bool, lowercase: bool) {
-    let mut values_vector: Vec<u8> = create_values_vector (number, uppercase, lowercase);
+    let mut character_vector: Vec<u8> = create_values_vector (number, uppercase, lowercase);
     let mut vector_of_values_vector: Vec<Vec<u8>> = Vec::new();
 
     for x in 0..length_of_serial {
-        thread_rng().shuffle (&mut values_vector);
-        vector_of_values_vector.push (values_vector.clone());
+        thread_rng().shuffle (&mut character_vector);
+        vector_of_values_vector.push (character_vector.clone());
     }
 
     print_serial_numbers_to_file (vector_of_values_vector);
