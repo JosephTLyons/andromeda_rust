@@ -12,7 +12,7 @@ fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
         serial_numbers_vector.push (values_vector.clone());
     }
 
-    // Algorithm to cycle through the vectors and print each serai to a file
+    // Algorithm to cycle through the vectors and print each serial to a file
 }
 
 // Delete this when done
