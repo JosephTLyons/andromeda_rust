@@ -2,8 +2,8 @@ extern crate rand;
 
 use rand::prelude::*;
 
-fn generate_serial_numbers_vector (number_of_serials: u32, length_of_serial: u32,
-                                   number: bool, uppercase: bool, lowercase: bool) -> Vec<Vec<u8>> {
+fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
+                            number: bool, uppercase: bool, lowercase: bool) {
     let mut values_vector: Vec<u8> = create_values_vector (number, uppercase, lowercase);
     let mut serial_numbers_vector: Vec<Vec<u8>> = Vec::new();
 
@@ -12,7 +12,7 @@ fn generate_serial_numbers_vector (number_of_serials: u32, length_of_serial: u32
         serial_numbers_vector.push (values_vector.clone());
     }
 
-    return serial_numbers_vector;
+    // Algorithm to cycle through the vectors and print each serial to a file
 }
 
 // Delete this when done
@@ -47,6 +47,5 @@ fn create_values_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<
 }
 
 fn main() {
-    generate_serial_numbers_vector (100, 8, true, true, true);
-    // Algorithm to cycle through the vectors and print each serial to a file
+    generate_serial_numbers (100, 8, true, true, true);
 }
