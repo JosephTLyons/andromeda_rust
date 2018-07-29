@@ -4,7 +4,7 @@ use rand::prelude::*;
 
 fn generate_serial_numbers (number_of_serials: u64, length_of_serial: u64,
                             number: bool, uppercase: bool, lowercase: bool) {
-    let mut character_vector: Vec<u8> = create_values_vector (number, uppercase, lowercase);
+    let mut character_vector: Vec<u8> = create_character_vector (number, uppercase, lowercase);
     let mut vector_of_character_vectors: Vec<Vec<u8>> = Vec::new();
 
     for x in 0..length_of_serial {
@@ -22,7 +22,7 @@ fn print_vector (vec: Vec<u8>) {
     }
 }
 
-fn create_values_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<u8> {
+fn create_character_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<u8> {
     let mut v: Vec<u8> = Vec::new();
 
     if number {
