@@ -12,7 +12,7 @@ fn generate_serial_numbers (number_of_serials: u32, length_of_serial: u32,
         vector_of_character_vectors.push (character_vector.clone());
     }
 
-    print_serial_numbers_to_file (vector_of_character_vectors);
+    print_serial_numbers_to_file (number_of_serials, vector_of_character_vectors);
 }
 
 // Delete this when done
@@ -46,11 +46,11 @@ fn create_values_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<
     return v;
 }
 
-fn print_serial_numbers_to_file (vector_of_character_vectors: Vec<Vec<u8>>) {
+fn print_serial_numbers_to_file (number_of_serials: u32, vector_of_character_vectors: Vec<Vec<u8>>) {
 
-    // let total_possible_combinations: i64 = i64::pow (vector_of_character_vectors[0].len() as i64,
-    //                                                  vector_of_character_vectors.len() as u32);
-    //
+    let total_possible_combinations: i64 = i64::pow (vector_of_character_vectors[0].len() as i64,
+                                                     vector_of_character_vectors.len() as u32);
+
     // println! ("{} total combinations possible with serial numbers of length {} with {} characters choices",
     //           total_possible_combinations,
     //           vector_of_character_vectors.len(),
@@ -58,11 +58,18 @@ fn print_serial_numbers_to_file (vector_of_character_vectors: Vec<Vec<u8>>) {
 
     // This isn't the correct algorithm, algorith should be able to print all values, this is just temp
 
-    for x in 0..vector_of_character_vectors[0].len() {
-        for y in 0..vector_of_character_vectors.len() {
-            print!("{}", vector_of_character_vectors[y][x] as char);
+    if total_possible_combinations < number_of_serials {
+        println!("Error, can't generate this number of unique serials with the chosen characters.  Either increase the variety of characters or decrease the number of serial numbers.")
+    }
+
+    else {
+        for x in 0..vector_of_character_vectors[0].len() {
+            print!("{}) ", x);
+            for y in 0..vector_of_character_vectors.len() {
+                print!("{}", vector_of_character_vectors[y][x] as char);
+            }
+            println!();
         }
-        println!();
     }
 
     //let mut index_vector = vec![0; vector_of_character_vectors.len()];
