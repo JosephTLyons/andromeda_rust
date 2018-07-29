@@ -48,8 +48,8 @@ fn create_values_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<
 
 fn print_serial_numbers_to_file (number_of_serials: u64, vector_of_character_vectors: Vec<Vec<u8>>) {
 
-    let total_possible_combinations: u64 = i64::pow (vector_of_character_vectors[0].len() as i64,
-                                                     vector_of_character_vectors.len() as u32) as u64;
+    let total_possible_combinations: u64 = u64::pow (vector_of_character_vectors[0].len() as u64,
+                                                     vector_of_character_vectors.len() as u32);
 
     if total_possible_combinations < number_of_serials {
         println!("You are requesting {} unique licenses, but only {} unique licenses can be generated given the inputs; either allow for a larger variety of characters to be used in serial numbers or decrease the amount of serial numbers to be generated.", number_of_serials, total_possible_combinations);
