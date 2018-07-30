@@ -18,3 +18,5 @@ optimizations)
 - Update README.md to say "probably unique", since a random shuffle could be the
 same as a previous, but it highly unlikely
 - Add checks to make sure we aren't exceeding the length of 20
+- Using a 4 length and numbers only, we can see that there are many duplicates,
+big bug
