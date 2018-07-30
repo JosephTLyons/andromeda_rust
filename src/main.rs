@@ -56,7 +56,8 @@ fn print_serial_numbers_to_file (number_of_serials: u64, vector_of_character_vec
     }
 
     else {
-        // This isn't the correct algorithm, algorith should be able to print all values, this is just temp
+        // This isn't the correct algorithm, algorithm should be able to print all combinations of
+        // the serial length, this is just temporary algorithm
         for x in 0..vector_of_character_vectors[0].len() {
             print!("{}) ", x);  // Remove this line after complete
 
