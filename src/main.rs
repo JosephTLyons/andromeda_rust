@@ -58,20 +58,24 @@ fn print_serial_numbers_to_file (number_of_serials: u128, vector_of_character_ve
     }
 
     else {
-        // let mut serial_file = File::create (number_of_serials.to_string() + "_unique_serials.txt").unwrap();
-        // serial_file.write (b"test");
+        let mut serial_file = File::create (number_of_serials.to_string() + "_unique_serials.txt").unwrap();
+        let mut single_serial_number: String = String::new();
 
         // This isn't the correct algorithm, algorithm should be able to print all combinations of
         // the serial length, this is just temporary algorithm
         for x in 0..vector_of_character_vectors[0].len() {
-            print!("{}) ", x);  // Remove this line after complete
+            //print!("{}) ", x);  // Remove this line after complete
 
             // Print one serial number
             for y in 0..vector_of_character_vectors.len() {
-                print!("{}", vector_of_character_vectors[y][x] as char);
+                //print!("{}", vector_of_character_vectors[y][x] as char);
+                single_serial_number.push(vector_of_character_vectors[y][x] as char);
             }
 
-            println!();
+            single_serial_number.push_str ("\n");
+            serial_file.write (single_serial_number.as_bytes());
+            single_serial_number.clear();
+            // println!();
         }
     }
 }
