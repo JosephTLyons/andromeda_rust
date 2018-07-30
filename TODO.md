@@ -14,3 +14,6 @@ software
 optimizations)
 - Clean up function order
 - Make all static sized vectors arrays (main vector and index vector)
+- Go over all code to make sure we are hitting all combinations
+- Update README.md to say "probably unique", since a random shuffle could be the
+same as a previous, but it highly unlikely
