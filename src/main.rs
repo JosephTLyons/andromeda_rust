@@ -1,6 +1,7 @@
 extern crate rand;
 
 use rand::prelude::*;
+use std::fs::OpenOptions;
 
 fn generate_serial_numbers (number_of_serials: u128, length_of_serial: u64,
                             number: bool, uppercase: bool, lowercase: bool) {
@@ -56,6 +57,8 @@ fn print_serial_numbers_to_file (number_of_serials: u128, vector_of_character_ve
     }
 
     else {
+        create_file (number_of_serials.to_string() + "_unique_serials.txt");
+
         // This isn't the correct algorithm, algorithm should be able to print all combinations of
         // the serial length, this is just temporary algorithm
         for x in 0..vector_of_character_vectors[0].len() {
@@ -69,6 +72,14 @@ fn print_serial_numbers_to_file (number_of_serials: u128, vector_of_character_ve
             println!();
         }
     }
+}
+
+fn create_file (filename: String) {
+    let file = OpenOptions::new()
+        .read (true)
+        .write (true)
+        .create (true)
+        .open (filename);
 }
 
 fn custom_pow (base: u128, exponent: u128) -> u128 {
