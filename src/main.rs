@@ -76,6 +76,12 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
 
 fn increment_index_vector (vec: &mut [usize], upper_rounding_number: usize) {
     for x in 0..vec.len() {
+        print!("{}", vec[x]);
+    }
+
+    println!();
+
+    for x in 0..vec.len() {
         if vec[x] == (upper_rounding_number - 1) {
             vec[x] = 0;
 
