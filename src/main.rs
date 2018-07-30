@@ -4,7 +4,7 @@ use rand::prelude::*;
 use std::fs::File;
 use std::io::prelude::*;
 
-fn generate_serial_numbers (number_of_serials: u128, length_of_serial: u64,
+fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
                             number: bool, uppercase: bool, lowercase: bool) {
     let mut character_vector: Vec<u8> = create_character_vector (number, uppercase, lowercase);
     let mut vector_of_character_vectors: Vec<Vec<u8>> = Vec::new();
@@ -15,7 +15,7 @@ fn generate_serial_numbers (number_of_serials: u128, length_of_serial: u64,
         vector_of_character_vectors.push (character_vector.clone());
     }
 
-    print_serial_numbers_to_file (number_of_serials, vector_of_character_vectors);
+    print_serial_numbers_to_file (number_of_serials, length_of_serial, vector_of_character_vectors);
 }
 
 // Delete this when done
@@ -49,7 +49,9 @@ fn create_character_vector (number: bool, uppercase: bool, lowercase: bool) -> V
     return v;
 }
 
-fn print_serial_numbers_to_file (number_of_serials: u128, vector_of_character_vectors: Vec<Vec<u8>>) {
+fn print_serial_numbers_to_file (number_of_serials: u128,
+                                 length_of_serial: usize,
+                                 vector_of_character_vectors: Vec<Vec<u8>>) {
 
     let total_possible_combinations: u128 = custom_pow (vector_of_character_vectors[0].len() as u128,
                                                         vector_of_character_vectors.len() as u128);
@@ -81,27 +83,17 @@ fn print_serial_numbers_to_file (number_of_serials: u128, vector_of_character_ve
             // println!(); // Detete
         }
 
-        print! ("{}", vector_of_character_vectors[0][index_vector[0]] as char);
-        print! ("{}", vector_of_character_vectors[1][index_vector[1]] as char);
-        print! ("{}", vector_of_character_vectors[2][index_vector[2]] as char);
-        print! ("{}", vector_of_character_vectors[3][index_vector[3]] as char);
-        print! ("{}", vector_of_character_vectors[4][index_vector[4]] as char);
-        print! ("{}", vector_of_character_vectors[5][index_vector[5]] as char);
-        print! ("{}", vector_of_character_vectors[6][index_vector[6]] as char);
-        print! ("{}", vector_of_character_vectors[7][index_vector[7]] as char);
-        print! ("{}", vector_of_character_vectors[8][index_vector[8]] as char);
-        print! ("{}", vector_of_character_vectors[9][index_vector[9]] as char);
-        print! ("{}", vector_of_character_vectors[10][index_vector[10]] as char);
-        print! ("{}", vector_of_character_vectors[11][index_vector[11]] as char);
-        print! ("{}", vector_of_character_vectors[12][index_vector[12]] as char);
-        print! ("{}", vector_of_character_vectors[13][index_vector[13]] as char);
-        print! ("{}", vector_of_character_vectors[14][index_vector[14]] as char);
-        print! ("{}", vector_of_character_vectors[15][index_vector[15]] as char);
-        print! ("{}", vector_of_character_vectors[16][index_vector[16]] as char);
-        print! ("{}", vector_of_character_vectors[17][index_vector[17]] as char);
-        print! ("{}", vector_of_character_vectors[18][index_vector[18]] as char);
-        print! ("{}", vector_of_character_vectors[19][index_vector[19]] as char);
+        for x in 0..number_of_serials {
+            print! ("{}) ", x);
 
+            for x in 0..length_of_serial {
+                print! ("{}", vector_of_character_vectors[x][index_vector[x]] as char);
+            }
+
+            // Increment index_vector
+
+            println!();
+        }
     }
 }
 
@@ -116,5 +108,5 @@ fn custom_pow (base: u128, exponent: u128) -> u128 {
 }
 
 fn main() {
-    generate_serial_numbers (100, 16, false, true, true);
+    generate_serial_numbers (10000, 4, true, false, false);
 }

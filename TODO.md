@@ -10,3 +10,6 @@ software
 - Clean up code, delete all commented out code and remove any temp functions
 (search "delete")
 - Refactor larger functions
+- Optimizations (reducing bit size of integers to lowest they can go, larger
+optimizations)
+- Clean up function order
