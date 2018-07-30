@@ -13,3 +13,4 @@ software
 - Optimizations (reducing bit size of integers to lowest they can go, larger
 optimizations)
 - Clean up function order
+- Make all static sized vectors arrays (main vector and index vector)

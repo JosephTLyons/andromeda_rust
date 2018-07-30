@@ -84,15 +84,32 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
         }
 
         for x in 0..number_of_serials {
-            print! ("{}) ", x);
+            print! ("{}) ", x); // Delete
 
-            for x in 0..length_of_serial {
-                print! ("{}", vector_of_character_vectors[x][index_vector[x]] as char);
+            for y in 0..length_of_serial {
+                print! ("{}", vector_of_character_vectors[y][index_vector[y]] as char);
             }
 
             // Increment index_vector
+            increment_index_vector (index_vector.as_mut_slice(), vector_of_character_vectors[0].len());
 
             println!();
+        }
+    }
+}
+
+fn increment_index_vector (vec: &mut [usize], upper_rounding_number: usize) {
+    for x in 0..vec.len() {
+        if vec[x] == (upper_rounding_number - 1) {
+            vec[x] = 0;
+
+            if x < vec.len() {
+                vec[x] += 1;
+            }
+        }
+
+        else {
+            vec[x] += 1;
         }
     }
 }
@@ -108,5 +125,5 @@ fn custom_pow (base: u128, exponent: u128) -> u128 {
 }
 
 fn main() {
-    generate_serial_numbers (10000, 4, true, false, false);
+    generate_serial_numbers (100, 16, true, false, false);
 }
