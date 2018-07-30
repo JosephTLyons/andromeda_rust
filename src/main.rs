@@ -84,3 +84,6 @@ fn pow (base: u128, exponent: u128) -> u128 {
 fn main() {
     generate_serial_numbers (100, 16, true, true, true);
 }
+
+//TODO: Get algorith to make all combations of serials, print to file, find upper limit of serial
+// number before overflow, then use an if-statement to report an error to user.
