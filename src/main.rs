@@ -81,17 +81,19 @@ fn increment_index_vector (vec: &mut [usize], upper_rounding_number: usize) {
 
     println!();
 
+    vec[0] += 1;
+
     for x in 0..vec.len() {
-        if vec[x] == (upper_rounding_number - 1) {
+        if vec[x] == (upper_rounding_number) {
             vec[x] = 0;
 
             if x < vec.len() {
-                vec[x] += 1;
+                vec[x + 1] += 1;
             }
         }
 
         else {
-            vec[x] += 1;
+            break;
         }
     }
 }
@@ -107,5 +109,5 @@ fn custom_pow (base: u128, exponent: u128) -> u128 {
 }
 
 fn main() {
-    generate_serial_numbers (25, 16, true, false, false);
+    generate_serial_numbers (101, 16, true, false, false);
 }
