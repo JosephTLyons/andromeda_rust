@@ -8,4 +8,5 @@ if-statement to report an error to user.
 software
 - After software works, work on removing all warnings thrown by Rust compiler
 - Clean up code, delete all commented out code and remove any temp functions
+(search "delete")
 - Refactor larger functions
