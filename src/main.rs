@@ -77,7 +77,7 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
 fn increment_index_vector (vec: &mut [usize], upper_rounding_number: usize) {
     // Delete this
             for x in 0..vec.len() {
-                print!("{}", vec[x]);
+                print!("{} ", vec[x]);
             }
 
             println!();
@@ -110,5 +110,5 @@ fn custom_pow (base: u128, exponent: u128) -> u128 {
 }
 
 fn main() {
-    generate_serial_numbers (101, 16, true, false, false);
+    generate_serial_numbers (101, 8, false, true, true);
 }
