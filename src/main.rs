@@ -75,11 +75,12 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
 }
 
 fn increment_index_vector (vec: &mut [usize], upper_rounding_number: usize) {
-    for x in 0..vec.len() {
-        print!("{}", vec[x]);
-    }
+    // Delete this
+            for x in 0..vec.len() {
+                print!("{}", vec[x]);
+            }
 
-    println!();
+            println!();
 
     vec[0] += 1;
 
