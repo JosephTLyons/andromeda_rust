@@ -66,12 +66,13 @@ fn print_serial_numbers_to_file (number_of_serials: u128, vector_of_character_ve
         for x in 0..vector_of_character_vectors[0].len() {
             //print!("{}) ", x);  // Remove this line after complete
 
-            // Print one serial number
+            // Create string of one serial number
             for y in 0..vector_of_character_vectors.len() {
                 //print!("{}", vector_of_character_vectors[y][x] as char);
-                single_serial_number_string.push(vector_of_character_vectors[y][x] as char);
+                single_serial_number_string.push (vector_of_character_vectors[y][x] as char);
             }
 
+            // Write single serial number to file
             single_serial_number_string.push_str ("\n");
             serial_file.write (single_serial_number_string.as_bytes());
             single_serial_number_string.clear();
