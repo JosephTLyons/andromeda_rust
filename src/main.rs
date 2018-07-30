@@ -9,7 +9,7 @@ fn generate_serial_numbers (number_of_serials: u128, length_of_serial: u64,
     let mut character_vector: Vec<u8> = create_character_vector (number, uppercase, lowercase);
     let mut vector_of_character_vectors: Vec<Vec<u8>> = Vec::new();
 
-    for x in 0..length_of_serial {
+    for _ in 0..max_serial_length {
         thread_rng().shuffle (&mut character_vector);
         vector_of_character_vectors.push (character_vector.clone());
     }
@@ -84,7 +84,7 @@ fn print_serial_numbers_to_file (number_of_serials: u128, vector_of_character_ve
 fn custom_pow (base: u128, exponent: u128) -> u128 {
     let mut total: u128 = 1;
 
-    for x in 0..exponent {
+    for _ in 0..exponent {
         total *= base;
     }
 
