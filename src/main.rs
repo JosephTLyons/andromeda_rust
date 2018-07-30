@@ -18,13 +18,6 @@ fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
     print_serial_numbers_to_file (number_of_serials, length_of_serial, vector_of_character_vectors);
 }
 
-// Delete this when done
-fn print_vector (vec: Vec<u8>) {
-    for x in 0..vec.len() {
-        println! ("{}", vec[x] as char);
-    }
-}
-
 fn create_character_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<u8> {
     let mut v: Vec<u8> = Vec::new();
 
@@ -65,35 +58,18 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
         let mut single_serial_number_string: String = String::new();
         let mut index_vector: Vec<usize> = vec![0; 20];
 
-        // This isn't the correct algorithm, algorithm should be able to print all combinations of
-        // the serial length, this is just temporary algorithm (Delete)
-        for x in 0..vector_of_character_vectors[0].len() {
-            //print!("{}) ", x);  // Delete this line after complete
-
-            // Create string of one serial number
-            for y in 0..vector_of_character_vectors.len() {
-                //print!("{}", vector_of_character_vectors[y][x] as char); // Delete
-                single_serial_number_string.push (vector_of_character_vectors[y][x] as char);
+        for x in 0..number_of_serials {
+            for y in 0..length_of_serial {
+                single_serial_number_string.push (vector_of_character_vectors[y][index_vector[y]] as char);
             }
 
             // Write single serial number to file
             single_serial_number_string.push_str ("\n");
             serial_file.write (single_serial_number_string.as_bytes());
             single_serial_number_string.clear();
-            // println!(); // Detete
-        }
-
-        for x in 0..number_of_serials {
-            print! ("{}) ", x); // Delete
-
-            for y in 0..length_of_serial {
-                print! ("{}", vector_of_character_vectors[y][index_vector[y]] as char);
-            }
 
             // Increment index_vector
             increment_index_vector (index_vector.as_mut_slice(), vector_of_character_vectors[0].len());
-
-            println!();
         }
     }
 }
@@ -125,5 +101,5 @@ fn custom_pow (base: u128, exponent: u128) -> u128 {
 }
 
 fn main() {
-    generate_serial_numbers (100, 16, true, false, false);
+    generate_serial_numbers (25, 16, true, false, false);
 }
