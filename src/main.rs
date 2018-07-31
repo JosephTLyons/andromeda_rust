@@ -66,7 +66,7 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
 
             // Write single serial number to file
             single_serial_number_string.push_str ("\n");
-            serial_file.write (single_serial_number_string.as_bytes()).expect("Coult not write to file");
+            serial_file.write (single_serial_number_string.as_bytes()).expect ("Coult not write to file");
             single_serial_number_string.clear();
 
             // Increment index_vector
