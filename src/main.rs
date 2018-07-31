@@ -10,6 +10,7 @@ fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
     let mut vector_of_character_vectors: Vec<Vec<u8>> = Vec::new();
     let max_serial_length: u8 = 20;
 
+    // Shuffle character vector and push a copy into vector
     for _ in 0..max_serial_length {
         thread_rng().shuffle (&mut character_vector);
         vector_of_character_vectors.push (character_vector.clone());
@@ -110,5 +111,5 @@ fn custom_pow (base: u128, exponent: u128) -> u128 {
 }
 
 fn main() {
-    generate_serial_numbers (101, 8, false, true, true);
+    generate_serial_numbers (101, 8, false, true, false  );
 }
