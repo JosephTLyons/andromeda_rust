@@ -111,5 +111,5 @@ fn custom_pow (base: u128, exponent: u128) -> u128 {
 }
 
 fn main() {
-    generate_serial_numbers (101, 8, false, true, false  );
+    generate_serial_numbers (101, 8, false, true, false);
 }
