@@ -51,7 +51,13 @@ fn print_all_serial_numbers_to_file (number_of_serials: u128,
                                                         vector_of_character_vectors.len());
 
     if total_possible_combinations < number_of_serials {
-        println! ("You are requesting {} unique serial numbers, but only {} unique serial numbers can be generated given the inputs; either allow for a larger variety of characters to be used in serial numbers or decrease the amount of serial numbers to be generated.", number_of_serials, total_possible_combinations);
+        println! (
+            "You are requesting {} unique serial numbers, but only {} unique serial numbers can \
+            be generated given the inputs; either allow for a larger variety of characters to be \
+            used in serial numbers or decrease the amount of serial numbers to be generated.",
+            number_of_serials,
+            total_possible_combinations
+        );
     }
 
     else {
