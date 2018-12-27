@@ -97,15 +97,15 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
     }
 }
 
-fn increment_index_vector (vec: &mut [usize], upper_rounding_number: usize) {
-    vec[0] += 1;
+fn increment_index_vector (index_vector: &mut [usize], upper_rounding_number: usize) {
+    index_vector[0] += 1;
 
-    for x in 0..vec.len() {
-        if vec[x] == (upper_rounding_number) {
-            vec[x] = 0;
+    for x in 0..index_vector.len() {
+        if index_vector[x] == (upper_rounding_number) {
+            index_vector[x] = 0;
 
-            if x < vec.len() {
-                vec[x + 1] += 1;
+            if x < index_vector.len() {
+                index_vector[x + 1] += 1;
             }
         }
 
