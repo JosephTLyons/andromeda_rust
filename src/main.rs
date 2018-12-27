@@ -49,8 +49,14 @@ fn attempt_to_print_serial_numbers_to_file (number_of_serials: u128,
     let total_possible_combinations: u128 = u128::pow(vector_of_character_vectors[0].len() as u128,
                                                       vector_of_character_vectors.len() as u32);
 
+    if total_possible_combinations >= number_of_serials {
+        print_serial_numbers_to_file(number_of_serials,
+                                     length_of_serial,
+                                     vector_of_character_vectors,
+                                     total_possible_combinations);
+    }
 
-    if total_possible_combinations < number_of_serials {
+    else {
         println! (
             "You are requesting {} unique serial numbers, but only {} unique serial numbers can \
             be generated given the inputs; either allow for a larger variety of characters to be \
@@ -58,13 +64,6 @@ fn attempt_to_print_serial_numbers_to_file (number_of_serials: u128,
             number_of_serials,
             total_possible_combinations
         );
-    }
-
-    else {
-        print_serial_numbers_to_file(number_of_serials,
-                                     length_of_serial,
-                                     vector_of_character_vectors,
-                                     total_possible_combinations);
     }
 }
 
