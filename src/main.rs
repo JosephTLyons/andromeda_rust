@@ -8,10 +8,9 @@ fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
                             number: bool, uppercase: bool, lowercase: bool) {
     let mut character_vector: Vec<u8> = create_character_vector (number, uppercase, lowercase);
     let mut vector_of_character_vectors: Vec<Vec<u8>> = Vec::new();
-    let max_serial_length: u8 = 20;
 
     // Shuffle character vector and push a copy into vector
-    for _ in 0..max_serial_length {
+    for _ in 0..length_of_serial {
         thread_rng().shuffle (&mut character_vector);
         vector_of_character_vectors.push (character_vector.clone());
     }
