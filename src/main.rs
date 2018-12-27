@@ -48,7 +48,7 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
                                  vector_of_character_vectors: Vec<Vec<u8>>) {
 
     let total_possible_combinations: u128 = custom_pow (vector_of_character_vectors[0].len() as u128,
-                                                        vector_of_character_vectors.len() as u128);
+                                                        vector_of_character_vectors.len());
 
     if total_possible_combinations < number_of_serials {
         println! ("You are requesting {} unique serial numbers, but only {} unique serial numbers can be generated given the inputs; either allow for a larger variety of characters to be used in serial numbers or decrease the amount of serial numbers to be generated.", number_of_serials, total_possible_combinations);
@@ -100,14 +100,14 @@ fn increment_index_vector (vec: &mut [usize], upper_rounding_number: usize) {
     }
 }
 
-fn custom_pow (base: u128, exponent: u128) -> u128 {
-    let mut total: u128 = 1;
+fn custom_pow (base: u128, exponent: usize) -> u128 {
+    let mut total: u128 = base;
 
-    for _ in 0..exponent {
+    for _ in 2..=exponent {
         total *= base;
     }
 
-    return total;
+    total
 }
 
 fn main() {
