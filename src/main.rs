@@ -16,7 +16,7 @@ fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
         vector_of_character_vectors.push (character_vector.clone());
     }
 
-    print_serial_numbers_to_file (number_of_serials, length_of_serial, vector_of_character_vectors);
+    print_all_serial_numbers_to_file (number_of_serials, length_of_serial, vector_of_character_vectors);
 }
 
 fn create_character_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<u8> {
@@ -43,9 +43,9 @@ fn create_character_vector (number: bool, uppercase: bool, lowercase: bool) -> V
     v
 }
 
-fn print_serial_numbers_to_file (number_of_serials: u128,
-                                 length_of_serial: usize,
-                                 vector_of_character_vectors: Vec<Vec<u8>>) {
+fn print_all_serial_numbers_to_file (number_of_serials: u128,
+                                     length_of_serial: usize,
+                                     vector_of_character_vectors: Vec<Vec<u8>>) {
 
     let total_possible_combinations: u128 = custom_pow (vector_of_character_vectors[0].len() as u128,
                                                         vector_of_character_vectors.len());
@@ -55,34 +55,44 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
     }
 
     else {
-        let mut serial_file = File::create (number_of_serials.to_string() + "_unique_serials.txt").unwrap();
-        let mut single_serial_number_string: String = String::new();
-        let mut index_vector: Vec<usize> = vec![0; 20];
+        print_single_serial_number_to_file(number_of_serials,
+                                           length_of_serial,
+                                           vector_of_character_vectors,
+                                           total_possible_combinations);
+    }
+}
 
-        for _ in 0..number_of_serials {
-            for y in 0..length_of_serial {
-                single_serial_number_string.push (vector_of_character_vectors[y][index_vector[y]] as char);
-            }
+fn print_single_serial_number_to_file (number_of_serials: u128,
+                                       length_of_serial: usize,
+                                       vector_of_character_vectors: Vec<Vec<u8>>,
+                                       total_possible_combinations: u128) {
+    let mut serial_file = File::create (number_of_serials.to_string() + "_unique_serials.txt").unwrap();
+    let mut single_serial_number_string: String = String::new();
+    let mut index_vector: Vec<usize> = vec![0; 20];
+    let index_spacing: u128 = total_possible_combinations / number_of_serials;
 
-            // Write single serial number to file
-            single_serial_number_string.push_str ("\n");
-            serial_file.write (single_serial_number_string.as_bytes()).expect ("Coult not write to file");
-            single_serial_number_string.clear();
-
-            // Increment index_vector
-            increment_index_vector (index_vector.as_mut_slice(), vector_of_character_vectors[0].len());
+    for _ in 0..number_of_serials {
+        for y in 0..length_of_serial {
+            single_serial_number_string.push (vector_of_character_vectors[y][index_vector[y]] as char);
         }
+
+        // Write single serial number to file
+        single_serial_number_string.push_str ("\n");
+        serial_file.write (single_serial_number_string.as_bytes());
+        single_serial_number_string.clear();
+
+        // Increment index by index spacing to get a even distribution of samples
+        // This is very inefficient, would prefer to replace this with a method that directly
+        // applies the spacing to the index vector without incrementing by 1
+        // for _ in 0..index_spacing {
+        //     increment_index_vector(index_vector.as_mut_slice(), vector_of_character_vectors[0].len());
+        // }
+
+        increment_index_vector(index_vector.as_mut_slice(), vector_of_character_vectors[0].len());
     }
 }
 
 fn increment_index_vector (vec: &mut [usize], upper_rounding_number: usize) {
-    // Delete this
-            for x in 0..vec.len() {
-                print!("{} ", vec[x]);
-            }
-
-            println!();
-
     vec[0] += 1;
 
     for x in 0..vec.len() {
@@ -111,5 +121,5 @@ fn custom_pow (base: u128, exponent: usize) -> u128 {
 }
 
 fn main() {
-    generate_serial_numbers (101, 8, false, true, false);
+    generate_serial_numbers (100, 8, true, true, true);
 }
