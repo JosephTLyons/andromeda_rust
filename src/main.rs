@@ -23,24 +23,24 @@ fn create_character_vector (number: bool, uppercase: bool, lowercase: bool) -> V
     let mut v: Vec<u8> = Vec::new();
 
     if number {
-        for x in '0' as u8..'9' as u8 + 1 {
-            v.push (x);
+        for x in '0' as u32..='9' as u32 {
+            v.push (x as u8);
         }
     }
 
     if uppercase {
-        for x in 'A' as u8..'Z' as u8 + 1 {
-            v.push (x);
+        for x in 'A' as u32..='Z' as u32 {
+            v.push (x as u8);
         }
     }
 
     if lowercase {
-        for x in 'a' as u8..'z' as u8 + 1 {
-            v.push (x);
+        for x in 'a' as u32..='z' as u32 {
+            v.push (x as u8);
         }
     }
 
-    return v;
+    v
 }
 
 fn print_serial_numbers_to_file (number_of_serials: u128,
