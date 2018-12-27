@@ -15,7 +15,8 @@ fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
         vector_of_character_vectors.push (character_vector.clone());
     }
 
-    print_all_serial_numbers_to_file (number_of_serials, length_of_serial, vector_of_character_vectors);
+    attempt_to_print_serial_numbers_to_file (number_of_serials, length_of_serial,
+                                             vector_of_character_vectors);
 }
 
 fn create_character_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<u8> {
@@ -42,9 +43,9 @@ fn create_character_vector (number: bool, uppercase: bool, lowercase: bool) -> V
     v
 }
 
-fn print_all_serial_numbers_to_file (number_of_serials: u128,
-                                     length_of_serial: usize,
-                                     vector_of_character_vectors: Vec<Vec<u8>>) {
+fn attempt_to_print_serial_numbers_to_file (number_of_serials: u128,
+                                            length_of_serial: usize,
+                                            vector_of_character_vectors: Vec<Vec<u8>>) {
 
     let total_possible_combinations: u128 = custom_pow (vector_of_character_vectors[0].len() as u128,
                                                         vector_of_character_vectors.len());
@@ -60,14 +61,14 @@ fn print_all_serial_numbers_to_file (number_of_serials: u128,
     }
 
     else {
-        print_single_serial_number_to_file(number_of_serials,
-                                           length_of_serial,
-                                           vector_of_character_vectors,
-                                           total_possible_combinations);
+        print_serial_numbers_to_file(number_of_serials,
+                                     length_of_serial,
+                                     vector_of_character_vectors,
+                                     total_possible_combinations);
     }
 }
 
-fn print_single_serial_number_to_file (number_of_serials: u128,
+fn print_serial_numbers_to_file (number_of_serials: u128,
                                        length_of_serial: usize,
                                        vector_of_character_vectors: Vec<Vec<u8>>,
                                        total_possible_combinations: u128) {
@@ -126,5 +127,5 @@ fn custom_pow (base: u128, exponent: usize) -> u128 {
 }
 
 fn main() {
-    generate_serial_numbers (100, 8, true, true, true);
+    generate_serial_numbers (10001, 4, true, false, false);
 }
