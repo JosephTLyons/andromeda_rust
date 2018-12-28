@@ -105,11 +105,9 @@ fn print_index_vector(index_vector: & [usize]) {
 fn increase_index_vector_by (index_vector: &mut [usize],
                              upper_rounding_number: usize,
                              mut distance_between_serial_numbers: u128) {
-
-    let len = index_vector.len();
     let mut increase_amount;
 
-    for x in (0..len).rev() {
+    for x in (0..index_vector.len()).rev() {
         increase_amount = distance_between_serial_numbers % upper_rounding_number as u128;
         index_vector[x] += increase_amount as usize;
 
@@ -132,5 +130,5 @@ fn main() {
 // TODO:
 // 1) Maybe pre allocatte space for character vectors and dont push, but just assign
 // 2) Remove warnings
-// 3) Double check that index increase is correct, run tests
+// 3) Double check that index increase is correct, run tests (clean up this code as well)
 // 4) See where I can pass in and return references to make app faster and more efficient
