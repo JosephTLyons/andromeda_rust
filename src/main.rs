@@ -127,9 +127,3 @@ fn increase_index_vector_by (index_vector: &mut [usize],
 fn main() {
     generate_serial_numbers (1000, 20, true, true, true);
 }
-
-// TODO:
-// 1) Maybe pre allocatte space for character vectors and dont push, but just assign
-// 2) Remove warnings
-// 3) Double check that index increase is correct, run tests (clean up this code as well)
-// 4) See where I can pass in and return references to make app faster and more efficient
