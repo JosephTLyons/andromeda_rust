@@ -1,7 +1,5 @@
 # serial_number_generator
 
-A command line tool that creates x amount of length y serial numbers.
-
 Quickly create large amounts of unique serial numbers.  Heavily
 inspired by [random code generator](https://www.randomcodegenerator.com/en/generate-serial-numbers).
 
