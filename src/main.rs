@@ -105,7 +105,7 @@ fn print_index_vector(index_vector: & [usize]) {
 fn increase_index_vector_by (index_vector: &mut [usize],
                              upper_rounding_number: usize,
                              mut distance_between_serial_numbers: u128) {
-    let mut increase_value_at_index_x_by;
+    let mut increase_value_at_index_x_by: u128;
 
     for x in (0..index_vector.len()).rev() {
         increase_value_at_index_x_by = distance_between_serial_numbers % upper_rounding_number as u128;
