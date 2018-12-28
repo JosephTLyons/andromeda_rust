@@ -73,8 +73,8 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
                                  total_possible_combinations: u128) {
     let mut serial_file = File::create (number_of_serials.to_string() + "_unique_serials.txt").unwrap();
     let mut single_serial_number_string: String = String::new();
-    let index_spacing: u128 = total_possible_combinations / number_of_serials;
     let mut index_vector: Vec<usize> = vec![0; length_of_serial];
+    let distance_between_serial_numbers: u128 = total_possible_combinations / number_of_serials;
 
     for _ in 0..number_of_serials {
         for y in 0..length_of_serial {
@@ -86,44 +86,51 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
         serial_file.write (single_serial_number_string.as_bytes());
         single_serial_number_string.clear();
 
-        // Increment index by index spacing to get a even distribution of samples
-        // This is very inefficient, would prefer to replace this with a method that directly
-        // applies the spacing to the index vector without incrementing by 1
-        // for _ in 0..index_spacing {
-        //     increment_index_vector(index_vector.as_mut_slice(), vector_of_character_vectors[0].len());
-        // }
+        //print_index_vector(&index_vector);
 
-        increment_index_vector(index_vector.as_mut_slice(), vector_of_character_vectors[0].len());
+        increase_index_vector_by(&mut index_vector, vector_of_character_vectors[0].len(),
+                                 distance_between_serial_numbers);
     }
 }
 
-fn increment_index_vector (index_vector: &mut [usize], upper_rounding_number: usize) {
-    let len = index_vector.len();
+// Simply for debugging
+fn print_index_vector(index_vector: & [usize]) {
+    for x in 0..index_vector.len() {
+        print!("{} ", index_vector[x]);
     }
 
-    index_vector[len - 1] += 1;
+    println!();
+}
+
+fn increase_index_vector_by (index_vector: &mut [usize],
+                             upper_rounding_number: usize,
+                             mut distance_between_serial_numbers: u128) {
+
+    let len = index_vector.len();
+    let mut increase_amount;
 
     for x in (0..len).rev() {
-        if index_vector[x] == upper_rounding_number {
-            index_vector[x] = 0;
+        increase_amount = distance_between_serial_numbers % upper_rounding_number as u128;
+        index_vector[x] += increase_amount as usize;
+
+        if index_vector[x] >= upper_rounding_number {
+            index_vector[x] -= upper_rounding_number;
 
             if x > 0 {
                 index_vector[x - 1] += 1;
             }
         }
 
-        else {
-            break;
-        }
+        distance_between_serial_numbers /= upper_rounding_number as u128;
     }
 }
 
 fn main() {
-    generate_serial_numbers (10001, 4, true, false, false);
+    generate_serial_numbers (1000, 20, true, true, true);
 }
 
 // TODO:
 // 1) Maybe pre allocatte space for character vectors and dont push, but just assign
 // 2) Remove warnings
-// 3) Figure out how to evenly sample the different combinations
+// 3) Double check that index increase is correct, run tests
 // 4) See where I can pass in and return references to make app faster and more efficient
