@@ -1,10 +1,12 @@
 # serial_number_generator
+
 A command line tool that creates x amount of length y serial numbers.  Heavily
 inspired by: https://www.randomcodegenerator.com/en/generate-serial-numbers
 
-# Creating Unique Serial Numbers
+## Creating Unique Serial Numbers
+
 Making a batch of unique licenses is very simple.  Let's say we want to create
-1000 licenses, each having 20 characters.  We want our licenses to make use of
+1000 licenses, each having 20 characters and we want our licenses to make use of
 numbers, lowercase letters, and uppercase letters.  We can simply call the
 function:
 
