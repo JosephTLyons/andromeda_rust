@@ -73,8 +73,8 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
                                  total_possible_combinations: u128) {
     let mut serial_file = File::create (number_of_serials.to_string() + "_unique_serials.txt").unwrap();
     let mut single_serial_number_string: String = String::new();
-    let mut index_vector: Vec<usize> = vec![0; 20];
     let index_spacing: u128 = total_possible_combinations / number_of_serials;
+    let mut index_vector: Vec<usize> = vec![0; length_of_serial];
 
     for _ in 0..number_of_serials {
         for y in 0..length_of_serial {
