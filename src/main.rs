@@ -7,12 +7,12 @@ use std::io::prelude::*;
 fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
                             number: bool, uppercase: bool, lowercase: bool) {
     let mut character_vector: Vec<u8> = create_character_vector (number, uppercase, lowercase);
-    let mut vector_of_character_vectors: Vec<Vec<u8>> = Vec::new();
+    let mut vector_of_character_vectors: Vec<Vec<u8>> = vec![Vec::new(); length_of_serial];
 
     // Shuffle character vector and push a copy into vector
-    for _ in 0..length_of_serial {
+    for x in 0..length_of_serial {
         thread_rng().shuffle (&mut character_vector);
-        vector_of_character_vectors.push (character_vector.clone());
+        vector_of_character_vectors[x] = character_vector.clone();
     }
 
     attempt_to_print_serial_numbers_to_file (number_of_serials, length_of_serial,
@@ -99,6 +99,7 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
 
 fn increment_index_vector (index_vector: &mut [usize], upper_rounding_number: usize) {
     let len = index_vector.len();
+    }
 
     index_vector[len - 1] += 1;
 
