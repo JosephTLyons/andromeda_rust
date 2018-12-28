@@ -96,7 +96,7 @@ fn print_serial_numbers_to_file (number_of_serials: u128,
 // Simply for debugging
 fn print_index_vector(index_vector: & [usize]) {
     for x in 0..index_vector.len() {
-        print!("{} ", index_vector[x]);
+        print!("{} ", format!("{:02}", index_vector[x]));
     }
 
     println!();
