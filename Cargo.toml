@@ -1,5 +1,5 @@
 [package]
-name = "serial_number_generator"
+name = "andromeda"
 version = "0.1.0"
 authors = ["Joseph Lyons <josephtlyons@gmail.com>"]
 
