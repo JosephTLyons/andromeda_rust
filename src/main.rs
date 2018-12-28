@@ -118,3 +118,9 @@ fn increment_index_vector (index_vector: &mut [usize], upper_rounding_number: us
 fn main() {
     generate_serial_numbers (10001, 4, true, false, false);
 }
+
+// TODO:
+// 1) Maybe pre allocatte space for character vectors and dont push, but just assign
+// 2) Remove warnings
+// 3) Figure out how to evenly sample the different combinations
+// 4) See where I can pass in and return references to make app faster and more efficient
