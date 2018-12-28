@@ -102,6 +102,7 @@ fn increment_index_vector (index_vector: &mut [usize], upper_rounding_number: us
 
     index_vector[len - 1] += 1;
 
+    for x in (0..len).rev() {
         if index_vector[x] == upper_rounding_number {
             index_vector[x] = 0;
 
