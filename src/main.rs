@@ -2,7 +2,6 @@ extern crate rand;
 
 use rand::prelude::*;
 use std::fs::File;
-use std::io::prelude::*;
 
 fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
                             number: bool, uppercase: bool, lowercase: bool) {
