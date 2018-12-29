@@ -2,8 +2,6 @@
 
 - Optimizations (reducing bit size of integers to lowest they can go, larger
   optimizations)
-- Update README.md to say "probably unique", since a random shuffle could be the
-  same as a previous, but it highly unlikely
 - Add checks to make sure we aren't exceeding the length of 20
 - Remove warnings
 - See if any typecasts are inefficient or affect the evenness of the probability
@@ -17,3 +15,6 @@
   example output of the app and use the index output to show how small numbers
   of licenses don't pull drastically different numbers.  Explain how it works.
   Document extremely well!
+- Make sure all variable state types
+- Pull all code into a module and keep main separate so I can then .gitignore
+  the main file.
