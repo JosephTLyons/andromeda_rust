@@ -10,9 +10,5 @@
 - See where I can pass in and return references to make app faster and more
   efficient
 - Break all long parameter lists in the same way
-- Update README.md with all rules and pitfalls to be aware of when using this
-  software.  Include a sample of the licenses using ... notation.  Include
-  example output of the app and use the index output to show how small numbers
-  of licenses don't pull drastically different numbers.  Explain how it works.
-  Document extremely well!
 - Make sure all variable state types
+- Double check all of README.md and fix discrepancies.
