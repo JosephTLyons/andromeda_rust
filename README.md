@@ -37,7 +37,7 @@ dFheZibfSFeXVlPfzeSg
 ...
 ```
 
-# How it Works
+## How it Works
 
 1. Check to make sure that it is possible to create the amount of unique
    licenses requested based on the the serial number length and character set.  
@@ -117,3 +117,5 @@ uncommenting the function `print_index_vector()``:
 00 53 50 36 43 40 10 56 33 45 08 26 48 37 43 09 26 17 53 02
 00 57 40 57 02 29 47 07 27 17 22 19 52 04 59 32 14 54 34 42
 ...
+```
+## Pitfalls to Look Out For
