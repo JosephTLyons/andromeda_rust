@@ -12,3 +12,5 @@
 - Break all long parameter lists in the same way
 - Make sure all variable state types
 - Double check all of README.md and fix discrepancies.
+- Can math notation be used in README.md?
+- Should numbers in README.md us `` code symbols?
