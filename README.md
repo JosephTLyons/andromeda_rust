@@ -97,7 +97,7 @@ are able to print licenses that are equally spaced apart in the total
 combination space, as shown in the first sample output earlier.
 
 We can even view the output of the `index_vector` to see the patterns better by
-uncommenting the function `print_index_vector()``:
+uncommenting the function `print_index_vector()`:
 
 ```text
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
