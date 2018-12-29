@@ -125,7 +125,7 @@ uncommenting the function `print_index_vector()`:
 
 ## Pitfalls to be Aware of
 
-Andromeda does not care if you choose settings the result in a very low pool of
+Andromeda does not care if you choose settings that result in a very low pool of
 license combinations.  You should be aware of this.  If you call:
 
 ```rust
