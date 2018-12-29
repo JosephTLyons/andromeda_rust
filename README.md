@@ -48,7 +48,7 @@ dFheZibfSFeXVlPfzeSg
    licenses requested based on the the serial number length and character set.  
    For example, if the user requests 1,000,000 unique licenses, but only asks
    for serial numbers of length 4 and wants only numbers as symbols, it will not
-   be possible, as 4^10 < 1,000,000.  We must have more possible combinations
+   be possible, as 10^4 < 1,000,000.  We must have more possible combinations
    than the number of licenses requested in order to ensure all licenses will be
    unique.
 2. Make a `character_vector` that is comprised of all the symbols the user
