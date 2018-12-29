@@ -150,11 +150,11 @@ the output will be:
 ...
 ```
 
-Notice that the licenses are very predictable.  Also, note that it would be
-fairly easy to guess a serial number.  The probability that a random guess would
-be an actual serial number is 1000/(10^4) = 0.1.  It is up to the user to
-understand this and adjust the settings to decrease the predictability of the
-output and decrease the chances of guessing a license number.  Using the
-example from earlier with 1000 serial numbers of length 20 using all symbols,
-the probability that a random guess would be an actual serial number is
-1000/(62^20) = 1.4196007e-33.
+Notice that the licenses are fairly similar.  Also, note that it would be fairly
+easy to guess a serial number.  The probability that a random guess would be an
+actual serial number is 1000/(10^4) = 0.1.  It is up to the user to understand
+this and adjust the settings to increase the complexity of the output and
+decrease the chances of guessing a license number.  Using the example from
+earlier with 1000 serial numbers of length 20 using all symbols, the probability
+that a random guess would be an actual serial number is 1000/(62^20) =
+1.4196007e-33.
