@@ -8,10 +8,15 @@ inspired by [random code generator](https://www.randomcodegenerator.com/en/gener
 Making a batch of unique licenses is very simple.  Let's say we want to create
 1000 licenses, each having 20 characters and we want our licenses to make use of
 numbers, lowercase letters, and uppercase letters.  We can simply call the
-function:
+function from our `main.rs` file:
 
 ```rust
-generate_serial_numbers (1000, 20, true, true, true);
+mod andromeda;
+
+fn main() {
+    andromeda::generate_serial_numbers (100, 4, true, false, false);
+}
+
 ```
 
 When we are done, we will find a new file within the same folder as this
@@ -82,7 +87,7 @@ will give us the value that we need to be apply to the `index_vector` before
 printing the next serial number to the file.  Using the example from earlier:
 
 ```rust
-generate_serial_numbers (1000, 20, true, true, true);
+andromeda::generate_serial_numbers (1000, 20, true, true, true);
 ```
 
 Our licenses are of length 20 and use 62 types of symbols (10 numbers + 26
@@ -125,7 +130,7 @@ Andromeda does not care if you choose settings the result in a very low pool of
 license combinations.  You should be aware of this.  If you call:
 
 ```rust
-generate_serial_numbers (1000, 4, true, false, false);
+andromeda::generate_serial_numbers (1000, 4, true, false, false);
 ```
 
 the output will be:
