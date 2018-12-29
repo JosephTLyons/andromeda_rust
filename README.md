@@ -97,7 +97,7 @@ serial numbers to be printed to the file is (62^20)/1000 =
 704423425546998022968330264616370.  If we set
 n = 704423425546998022968330264616370, then the function
 `increase_index_vector_by()` efficiently applies this number to the
-`index_vector` in roughly log(n) with base 62 operations.  Using this method, we
+`index_vector` in roughly (log(n) with base 62) operations.  Using this method, we
 are able to print licenses that are equally spaced apart in the total
 combination space, as shown in the first sample output earlier.
 
