@@ -118,4 +118,43 @@ uncommenting the function `print_index_vector()`:
 00 57 40 57 02 29 47 07 27 17 22 19 52 04 59 32 14 54 34 42
 ...
 ```
-## Pitfalls to Look Out For
+
+## Pitfalls to be Aware of
+
+Andromeda does not care if you choose settings the result in a very low pool of
+license combinations.  You should be aware of this.  If you call:
+
+```rust
+generate_serial_numbers (1000, 4, true, false, false);
+```
+
+the output will be:
+
+```text
+9444
+9474
+9494
+9464
+9484
+9434
+9424
+9404
+9414
+9454
+9244
+9274
+9294
+9264
+9284
+9234
+...
+```
+
+Notice that the licenses are very predictable.  Also, note that it would be
+fairly easy to guess a serial number.  The probability that a random guess would
+be an actual serial number is 1000/(10^4) = 0.1.  It is up to the user to
+understand this and adjust the settings to decrease the predictability of the
+output and decrease the chances of guessing a license number.  Using the
+example from earlier with 1000 serial numbers of length 20 using all symbols,
+the probability that a random guess would be an actual serial number is
+1000/(62^20) = 1.4196007e-33.
