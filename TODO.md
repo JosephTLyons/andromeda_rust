@@ -16,5 +16,3 @@
   of licenses don't pull drastically different numbers.  Explain how it works.
   Document extremely well!
 - Make sure all variable state types
-- Pull all code into a module and keep main separate so I can then .gitignore
-  the main file.
