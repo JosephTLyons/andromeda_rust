@@ -5,17 +5,27 @@ inspired by [random code generator](https://www.randomcodegenerator.com/en/gener
 
 ## Creating Unique Serial Numbers
 
-Making a batch of unique licenses is very simple.  Let's say we want to create
-1000 licenses, each having 20 characters and we want our licenses to make use of
-numbers, lowercase letters, and uppercase letters.  We can simply call the
-function from our `main.rs` file:
+Making a batch of unique licenses is very simple. Run the application with:
 
-```rust
-mod andromeda;
+```shell
+./andromeda
+```
 
-fn main() {
-    andromeda::generate_serial_numbers (1000, 20, true, true, true);
-}
+Let's go ahead and create 1000 serial numbers.  We want the serial numbers to be
+20 symbols long and we want to include numbers, uppercase letters, and lowercase
+letters:
+
+```text
+Serial number amount:
+1000
+Serial number length (20 or less):
+20
+Enter 'y' to use numbers:
+y
+Enter 'y' to use uppercase letters:
+y
+Enter 'y' to use lowercase letters:
+y
 ```
 
 When we are done, we will find a new file within the same folder as this
@@ -85,8 +95,17 @@ on the user settings and dividing it by the number of licenses needed.  This
 will give us the value that we need to be apply to the `index_vector` before
 printing the next serial number to the file.  Using the example from earlier:
 
-```rust
-andromeda::generate_serial_numbers (1000, 20, true, true, true);
+```text
+Serial number amount:
+1000
+Serial number length (20 or less):
+20
+Enter 'y' to use numbers:
+y
+Enter 'y' to use uppercase letters:
+y
+Enter 'y' to use lowercase letters:
+y
 ```
 
 Our licenses are of length 20 and use 62 types of symbols (10 numbers + 26
@@ -126,10 +145,20 @@ uncommenting the function `print_index_vector()`:
 ## Pitfalls to be Aware of
 
 Andromeda does not care if you choose settings that result in a very low pool of
-license combinations.  You should be aware of this.  If you call:
+license combinations.  You should be aware of this.  If you run the application
+with the following options:
 
-```rust
-andromeda::generate_serial_numbers (1000, 4, true, false, false);
+```text
+Serial number amount:
+1000
+Serial number length (20 or less):
+4
+Enter 'y' to use numbers:
+y
+Enter 'y' to use uppercase letters:
+n
+Enter 'y' to use lowercase letters:
+n
 ```
 
 the output will be:
