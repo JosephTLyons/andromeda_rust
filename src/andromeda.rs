@@ -4,8 +4,47 @@ use andromeda::rand::prelude::*;
 use std::fs::File;
 use std::io::prelude::*;
 
-pub fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
-                                number: bool, uppercase: bool, lowercase: bool) {
+pub fn interface() {
+    // Use stdin here instead of crate?
+    println!("Serial number amount: ");
+    let number_of_serials: u128 = read!();
+
+    println!("Serial number length (20 or less): ");
+    let length_of_serial: usize = read!();
+
+    println!("Enter 'y' to use numbers: ");
+    let mut choice: char = read!();
+    let mut numbers: bool = true;
+
+    if choice != 'y' {
+        numbers = false;
+    }
+
+    println!("Enter 'y' to use uppercase letters: ");
+    choice = read!();
+    let mut uppercase: bool = true;
+
+    if choice != 'y' {
+        uppercase = false;
+    }
+
+    println!("Enter 'y' to use lowercase letters: ");
+    choice = read!();
+    let mut lowercase: bool = true;
+
+    if choice != 'y' {
+        lowercase = false;
+    }
+
+    generate_serial_numbers (number_of_serials,
+                             length_of_serial,
+                             numbers,
+                             uppercase,
+                             lowercase);
+}
+
+fn generate_serial_numbers (number_of_serials: u128, length_of_serial: usize,
+                            number: bool, uppercase: bool, lowercase: bool) {
     let mut character_vector: Vec<u8> = create_character_vector (number, uppercase, lowercase);
     let mut vector_of_character_vectors: Vec<Vec<u8>> = vec![Vec::new(); length_of_serial];
 
