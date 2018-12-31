@@ -116,7 +116,7 @@ fn print_serial_numbers_to_file (number_of_serials: u128, length_of_serial: usiz
 
     for _ in 0..number_of_serials {
         for y in 0..length_of_serial {
-            single_serial_number_string.push (vector_of_character_vectors[y][index_vector[y]] as char);
+            single_serial_number_string.push(vector_of_character_vectors[y][index_vector[y]] as char);
         }
 
         // Write single serial number to file
