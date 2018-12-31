@@ -14,4 +14,6 @@
 - Can math notation be used in README.md?
 - Should numbers in README.md us `` code symbols?
 - In the main, set up some sort of input section and then compile the app for
-  GitHub releases (pick an appropriate version number)
+  GitHub releases (pick an appropriate version number v(1.0.0?))
+- Fix interface, not clean code, no error checking, should probably be using
+  stdin
