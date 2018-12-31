@@ -8,8 +8,10 @@
   well)
 - See where I can pass in and return references to make app faster and more
   efficient
-- Break all long parameter lists in the same way
+- Break all long parameter lists in the same way, format all code the same
 - Make sure all variable state types
 - Double check all of README.md and fix discrepancies.
 - Can math notation be used in README.md?
 - Should numbers in README.md us `` code symbols?
+- In the main, set up some sort of input section and then compile the app for
+  GitHub releases (pick an appropriate version number)
