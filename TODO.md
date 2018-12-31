@@ -2,7 +2,6 @@
 
 - Optimizations (reducing bit size of integers to lowest they can go, larger
   optimizations)
-- Add checks to make sure we aren't exceeding the length of 20
 - Remove warnings
 - See if any typecasts are inefficient or affect the evenness of the probability
 - Double check that index increase is correct, run tests (clean up this code as
