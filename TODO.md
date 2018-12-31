@@ -8,7 +8,6 @@
   well)
 - See where I can pass in and return references to make app faster and more
   efficient
-- Break all long parameter lists in the same way, format all code the same
 - Make sure all variable state types
 - Double check all of README.md and fix discrepancies.
 - Can math notation be used in README.md?
