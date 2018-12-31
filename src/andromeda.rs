@@ -98,12 +98,12 @@ fn can_create_serial_numbers(number_of_serials: u128, length_of_serial: usize,
     }
 
     if total_possible_combinations < number_of_serials {
-        println!(
-            "You are requesting {} unique serial numbers, but only {} unique serial numbers can \
-            be generated given the inputs; either allow for a larger variety of characters to be \
-            used in serial numbers or decrease the amount of serial numbers to be generated.",
-            number_of_serials,
-            total_possible_combinations);
+        println!("Requested serial number amount: {}", number_of_serials);
+        println!("Total possible serial numbers given current inputs: {}", total_possible_combinations);
+        println!("Try one or more of the following:");
+        println!("- Increasing the length of the serial numbers");
+        println!("- Allowing more types of symbols to be used");
+        println!("- Decreasing the amount of serial numbers to be generated");
 
         return false;
     }
