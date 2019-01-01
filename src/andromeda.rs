@@ -33,9 +33,9 @@ fn generate_serial_numbers(number_of_serials: &u128, length_of_serial: usize, nu
     let mut vector_of_character_vectors: Vec<Vec<u8>> = vec![Vec::new(); length_of_serial];
 
     // Shuffle character vector and push a copy into vector
-    for x in 0..length_of_serial {
+    for x in &mut vector_of_character_vectors {
         thread_rng().shuffle (&mut character_vector);
-        vector_of_character_vectors[x] = character_vector.clone();
+        *x = character_vector.clone();
     }
 
     let total_possible_combinations: u128 = u128::pow(vector_of_character_vectors[0].len() as u128,
