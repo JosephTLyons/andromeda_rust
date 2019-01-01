@@ -29,12 +29,12 @@ pub fn interface() {
 
 fn generate_serial_numbers(number_of_serials: &u128, length_of_serial: usize, number: bool,
                            uppercase: bool, lowercase: bool) {
-    let mut character_vector: Vec<u8> = create_character_vector (number, uppercase, lowercase);
+    let mut character_vector: Vec<u8> = create_character_vector(number, uppercase, lowercase);
     let mut vector_of_character_vectors: Vec<Vec<u8>> = vec![Vec::new(); length_of_serial];
 
     // Shuffle character vector and push a copy into vector
     for vec in &mut vector_of_character_vectors {
-        thread_rng().shuffle (&mut character_vector);
+        thread_rng().shuffle(&mut character_vector);
         *vec = character_vector.clone();
     }
 
@@ -48,24 +48,24 @@ fn generate_serial_numbers(number_of_serials: &u128, length_of_serial: usize, nu
     }
 }
 
-fn create_character_vector (number: bool, uppercase: bool, lowercase: bool) -> Vec<u8> {
+fn create_character_vector(number: bool, uppercase: bool, lowercase: bool) -> Vec<u8> {
     let mut v: Vec<u8> = Vec::new();
 
     if number {
         for x in '0' as u32..='9' as u32 {
-            v.push (x as u8);
+            v.push(x as u8);
         }
     }
 
     if uppercase {
         for x in 'A' as u32..='Z' as u32 {
-            v.push (x as u8);
+            v.push(x as u8);
         }
     }
 
     if lowercase {
         for x in 'a' as u32..='z' as u32 {
-            v.push (x as u8);
+            v.push(x as u8);
         }
     }
 
@@ -94,10 +94,10 @@ fn can_create_serial_numbers(number_of_serials: &u128, length_of_serial: usize,
     true
 }
 
-fn print_serial_numbers_to_file (number_of_serials: &u128, length_of_serial: usize,
-                                 vector_of_character_vectors: &[Vec<u8>],
-                                 total_possible_combinations: &u128) {
-    let mut serial_file = File::create (number_of_serials.to_string() + "_unique_serials.txt").unwrap();
+fn print_serial_numbers_to_file(number_of_serials: &u128, length_of_serial: usize,
+                                vector_of_character_vectors: &[Vec<u8>],
+                                total_possible_combinations: &u128) {
+    let mut serial_file = File::create(number_of_serials.to_string() + "_unique_serials.txt").unwrap();
     let mut single_serial_number_string: String = String::new();
     let mut index_vector: Vec<usize> = vec![0; length_of_serial];
     let distance_between_serial_numbers: u128 = total_possible_combinations / number_of_serials;
@@ -108,8 +108,8 @@ fn print_serial_numbers_to_file (number_of_serials: &u128, length_of_serial: usi
         }
 
         // Write single serial number to file
-        single_serial_number_string.push_str ("\n");
-        serial_file.write (single_serial_number_string.as_bytes());
+        single_serial_number_string.push_str("\n");
+        serial_file.write(single_serial_number_string.as_bytes());
         single_serial_number_string.clear();
 
         //print_index_vector(&index_vector);
@@ -129,8 +129,8 @@ fn print_index_vector(index_vector: & [usize]) {
     println!();
 }
 
-fn increase_index_vector_by (index_vector: &mut [usize], rollover_number: usize,
-                             mut distance_between_serial_numbers: u128) {
+fn increase_index_vector_by(index_vector: &mut [usize], rollover_number: usize,
+                            mut distance_between_serial_numbers: u128) {
     let mut increase_value_at_index_x_by: u128;
 
     for x in (0..index_vector.len()).rev() {
