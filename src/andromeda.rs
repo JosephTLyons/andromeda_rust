@@ -13,16 +13,13 @@ pub fn interface() {
     let length_of_serial: usize = read!();
 
     println!("Enter 'y' to use numbers: ");
-    let mut choice: char = read!();
-    let numbers: bool = choice == 'y';
+    let numbers: bool = 'y' == read!();
 
     println!("Enter 'y' to use uppercase letters: ");
-    choice = read!();
-    let uppercase: bool = choice == 'y';
+    let uppercase: bool = 'y' == read!();
 
     println!("Enter 'y' to use lowercase letters: ");
-    choice = read!();
-    let lowercase: bool = choice == 'y';
+    let lowercase: bool = 'y' == read!();
 
     generate_serial_numbers(&number_of_serials, length_of_serial, numbers, uppercase, lowercase);
 }
