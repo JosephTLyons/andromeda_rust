@@ -14,27 +14,15 @@ pub fn interface() {
 
     println!("Enter 'y' to use numbers: ");
     let mut choice: char = read!();
-    let mut numbers: bool = true;
-
-    if choice != 'y' {
-        numbers = false;
-    }
+    let numbers = choice == 'y';
 
     println!("Enter 'y' to use uppercase letters: ");
     choice = read!();
-    let mut uppercase: bool = true;
-
-    if choice != 'y' {
-        uppercase = false;
-    }
+    let uppercase = choice == 'y';
 
     println!("Enter 'y' to use lowercase letters: ");
     choice = read!();
-    let mut lowercase: bool = true;
-
-    if choice != 'y' {
-        lowercase = false;
-    }
+    let lowercase = choice == 'y';
 
     generate_serial_numbers(&number_of_serials, length_of_serial, numbers, uppercase, lowercase);
 }
