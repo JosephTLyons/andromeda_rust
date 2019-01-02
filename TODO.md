@@ -14,3 +14,5 @@
   GitHub releases (pick an appropriate version number v(1.0.0?))
 - Fix interface, not clean code, no error checking, should probably be using
   stdin
+- Print statistics to terminal
+- Print file name and location to terminal
