@@ -97,7 +97,8 @@ fn can_create_serial_numbers(number_of_serials: &u128, length_of_serial: usize,
 fn print_serial_numbers_to_file(number_of_serials: &u128, length_of_serial: usize,
                                 vector_of_character_vectors: &[Vec<u8>],
                                 total_possible_combinations: &u128) {
-    let mut serial_file = File::create(number_of_serials.to_string() + "_unique_serials.txt").unwrap();
+    let file_name: String = number_of_serials.to_string() + "_unique_serials.txt";
+    let mut serial_file = File::create(&file_name).unwrap();
     let mut single_serial_number_string: String = String::new();
     let mut index_vector: Vec<usize> = vec![0; length_of_serial];
     let distance_between_serial_numbers: u128 = total_possible_combinations / number_of_serials;
@@ -117,6 +118,8 @@ fn print_serial_numbers_to_file(number_of_serials: &u128, length_of_serial: usiz
         increase_index_vector_by(&mut index_vector, vector_of_character_vectors[0].len(),
                                  distance_between_serial_numbers);
     }
+
+    println!("Serial numbers printed to file: {}", file_name);
 }
 
 // This function is for debugging the program.
