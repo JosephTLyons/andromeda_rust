@@ -4,8 +4,6 @@ use andromeda::rand::prelude::*;
 use std::fs::File;
 use std::io::prelude::*;
 
-// Use stdin here instead of crate?
-// Deal with errors in input
 pub fn interface() {
     println!("Serial number amount: ");
     let number_of_serials: u128 = read!();
