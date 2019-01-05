@@ -6,7 +6,6 @@
   optimizations)
 - Remove warnings
 - See if any typecasts are inefficient or affect the evenness of the probability
-- Make sure all variable state types
 - Double check all of README.md and fix discrepancies.
 - Can math notation be used in README.md?
 - Should numbers in README.md be displayed as code?

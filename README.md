@@ -11,9 +11,9 @@ Making a batch of unique licenses is very simple. Run the application with:
 ./andromeda
 ```
 
-Let's go ahead and create 1000 serial numbers.  We want the serial numbers to be
-20 symbols long and we want to include numbers, uppercase letters, and lowercase
-letters:
+Let's go ahead and create `1000` serial numbers.  We want the serial numbers to
+be `20` symbols long and we want to include numbers, uppercase letters, and
+lowercase letters:
 
 ```text
 Serial number amount:
@@ -55,11 +55,11 @@ dFheZibfSFeXVlPfzeSg
 
 1. Check to make sure that it is possible to create the amount of unique
    licenses requested based on the the serial number length and character set.  
-   For example, if the user requests 1,000,000 unique licenses, but only asks
-   for serial numbers of length 4 and wants only numbers as symbols, it will not
-   be possible, as 10^4 < 1,000,000.  We must have more possible combinations
-   than the number of licenses requested in order to ensure all licenses will be
-   unique.
+   For example, if the user requests `1,000,000` unique licenses, but only asks
+   for serial numbers of length `4` and wants only numbers as symbols, it will
+   not be possible, as `10^4` < `1,000,000`.  We must have more possible
+   combinations than the number of licenses requested in order to ensure all
+   licenses will be unique.
 2. Make a `character_vector` that is comprised of all the symbols the user
    wishes to use in their serial numbers (numbers, lowercase letters, uppercase
    letters).
@@ -73,9 +73,9 @@ dFheZibfSFeXVlPfzeSg
    to each of the corresponding internal character vectors in
    `vector_of_character_vectors`.  The `vector_of_character_vectors` contains
    as many internal `character_vector`s as the length of our serial number.  
-   This can be seen sort of as a speedometer that starts with 0000 miles.  As we
-   roll through the miles in the rightmost column, it resets back to zero and
-   the next value to the left increments by 1.  This is exactly how the
+   This can be seen sort of as a speedometer that starts with `0000` miles.  As
+   we roll through the miles in the rightmost column, it resets back to zero and
+   the next value to the left increments by `1`.  This is exactly how the
    `index_vector` and `vector_of_character_vectors` work to obtain serial
    numbers.
 
@@ -108,15 +108,15 @@ Enter 'y' to use lowercase letters:
 y
 ```
 
-Our licenses are of length 20 and use 62 types of symbols (10 numbers + 26
-lowercase letters + 26 uppercase letters).  We have 62^20 possible unique
-serial number combinations.  Because we want 1000 licenses, the spacing between
-serial numbers to be printed to the file is (62^20)/1000 =
-704423425546998022968330264616370.  If we set
-n = 704423425546998022968330264616370, then the function
+Our licenses are of length `20` and use `62` types of symbols (`10` numbers +
+`26` lowercase letters + `26` uppercase letters).  We have `62^20` possible
+unique serial number combinations.  Because we want `1000` licenses, the spacing
+between serial numbers to be printed to the file is
+`(62^20)/1000 = 704423425546998022968330264616370`.  If we set
+`n = 704423425546998022968330264616370`, then the function
 `increase_index_vector_by()` efficiently applies this number to the
-`index_vector` in roughly (log(n) with base 62) operations.  Using this method, we
-are able to print licenses that are equally spaced apart in the total
+`index_vector` in roughly `log(n) with base 62` operations.  Using this method,
+we are able to print licenses that are equally spaced apart in the total
 combination space, as shown in the first sample output earlier.
 
 We can even view the output of the `index_vector` to see the patterns better by
@@ -185,9 +185,9 @@ the output will be:
 
 Notice that the licenses are fairly similar.  Also, note that it would be fairly
 easy to guess a serial number.  The probability that a random guess would be an
-actual serial number is 1000/(10^4) = 0.1.  It is up to the user to understand
+actual serial number is `1000/(10^4) = 0.1`.  It is up to the user to understand
 this and adjust the settings to increase the complexity of the output and
 decrease the chances of guessing a license number.  Using the example from
-earlier with 1000 serial numbers of length 20 using all symbols, the probability
-that a random guess would be an actual serial number is 1000/(62^20) =
-1.4196007e-33.
+earlier with `1000` serial numbers of length `20` using all symbols, the
+probability that a random guess would be an actual serial number is
+`1000/(62^20) = 1.4196007e-33`.
