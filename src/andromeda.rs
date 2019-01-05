@@ -49,27 +49,27 @@ fn generate_serial_numbers(number_of_serials: &u128, length_of_serial: usize, nu
 }
 
 fn create_character_vector(number: bool, uppercase: bool, lowercase: bool) -> Vec<u8> {
-    let mut v: Vec<u8> = Vec::new();
+    let mut vec: Vec<u8> = Vec::new();
 
     if number {
         for x in '0' as u32..='9' as u32 {
-            v.push(x as u8);
+            vec.push(x as u8);
         }
     }
 
     if uppercase {
         for x in 'A' as u32..='Z' as u32 {
-            v.push(x as u8);
+            vec.push(x as u8);
         }
     }
 
     if lowercase {
         for x in 'a' as u32..='z' as u32 {
-            v.push(x as u8);
+            vec.push(x as u8);
         }
     }
 
-    v
+    vec
 }
 
 fn can_create_serial_numbers(number_of_serials: &u128, length_of_serial: usize,
