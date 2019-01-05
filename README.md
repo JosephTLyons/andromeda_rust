@@ -119,8 +119,8 @@ between serial numbers to be printed to the file is
 we are able to print licenses that are equally spaced apart in the total
 combination space, as shown in the first sample output earlier.
 
-We can even view the output of the `index_vector` to see the patterns better by
-uncommenting the function `print_index_vector()`:
+We can even print all of the values of the `index_vector` to the terminal to see
+the patterns better by uncommenting the function `print_index_vector()`:
 
 ```text
 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
