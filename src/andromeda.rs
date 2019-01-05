@@ -52,20 +52,20 @@ fn create_character_vector(number: bool, uppercase: bool, lowercase: bool) -> Ve
     let mut vec: Vec<u8> = Vec::new();
 
     if number {
-        for x in '0' as u32..='9' as u32 {
-            vec.push(x as u8);
+        for x in b'0'..=b'9' {
+            vec.push(x);
         }
     }
 
     if uppercase {
-        for x in 'A' as u32..='Z' as u32 {
-            vec.push(x as u8);
+        for x in b'A'..=b'Z' {
+            vec.push(x);
         }
     }
 
     if lowercase {
-        for x in 'a' as u32..='z' as u32 {
-            vec.push(x as u8);
+        for x in b'a'..=b'z' {
+            vec.push(x);
         }
     }
 
