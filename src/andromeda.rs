@@ -118,7 +118,8 @@ fn print_serial_numbers_to_file(number_of_serials: &u128, length_of_serial: usiz
                                  distance_between_serial_numbers);
     }
 
-    println!("File path: {}{}{}", env::current_dir().unwrap().display(), "/", file_name);
+    let path: String = env::current_dir().unwrap().display().to_string() + "/" + &file_name;
+    println!("File path: {}", path);
 }
 
 // This function is for debugging the program.

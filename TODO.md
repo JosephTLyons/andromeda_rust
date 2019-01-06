@@ -10,7 +10,7 @@
 - Can math notation be used in README.md?
 - Fix interface, not clean code, no error checking, should probably be using
   stdin over the crate
-- Clean up how file path is printed, refactor code for it as well
+- Should file path printing happen where it happens (refactor it out?)
 
 ## New Features:
 
