@@ -40,9 +40,11 @@ fn generate_serial_numbers(number_of_serials: &u128, length_of_serial: usize, nu
 
     if can_create_serial_numbers(&number_of_serials, length_of_serial,
                                  &total_possible_combinations) {
-        print_serial_numbers_to_file(&number_of_serials, length_of_serial,
+        let file_name: String = number_of_serials.to_string() + "_unique_serials.txt";
+        
+        print_serial_numbers_to_file(&file_name, &number_of_serials, length_of_serial,
                                      &vector_of_character_vectors, &total_possible_combinations);
-
+        print_path(&file_name);
         print_stats(&number_of_serials, &total_possible_combinations);
     }
 }
@@ -93,11 +95,10 @@ fn can_create_serial_numbers(number_of_serials: &u128, length_of_serial: usize,
     true
 }
 
-fn print_serial_numbers_to_file(number_of_serials: &u128, length_of_serial: usize,
-                                vector_of_character_vectors: &[Vec<u8>],
+fn print_serial_numbers_to_file(file_name: &str, number_of_serials: &u128,
+                                length_of_serial: usize, vector_of_character_vectors: &[Vec<u8>],
                                 total_possible_combinations: &u128) {
-    let file_name: String = number_of_serials.to_string() + "_unique_serials.txt";
-    let mut serial_file = File::create(&file_name).unwrap();
+    let mut serial_file = File::create(file_name).unwrap();
     let mut single_serial_number_string: String = String::new();
     let mut index_vector: Vec<usize> = vec![0; length_of_serial];
     let distance_between_serial_numbers: u128 = total_possible_combinations / number_of_serials;
@@ -117,9 +118,6 @@ fn print_serial_numbers_to_file(number_of_serials: &u128, length_of_serial: usiz
         increase_index_vector_by(&mut index_vector, vector_of_character_vectors[0].len(),
                                  distance_between_serial_numbers);
     }
-
-    let path: String = env::current_dir().unwrap().display().to_string() + "/" + &file_name;
-    println!("File path: {}", path);
 }
 
 // This function is for debugging the program.
@@ -151,6 +149,10 @@ fn increase_index_vector_by(index_vector: &mut [usize], rollover_number: usize,
 
         distance_between_serial_numbers /= rollover_number as u128;
     }
+}
+
+fn print_path(file_name: &str) {
+    println!("File path: {}", env::current_dir().unwrap().display().to_string() + "/" + file_name);
 }
 
 fn print_stats(number_of_serials: &u128, total_possible_combinations: &u128) {
