@@ -1,9 +1,9 @@
 extern crate rand;
 
 use andromeda::rand::prelude::*;
+use std::env;
 use std::fs::File;
 use std::io::prelude::*;
-use std::env;
 
 pub fn interface() {
     println!("Serial number amount: ");
