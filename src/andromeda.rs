@@ -44,8 +44,8 @@ fn generate_serial_numbers(number_of_serials: &u128, length_of_serial: usize, nu
         
         print_serial_numbers_to_file(&file_name, &number_of_serials, length_of_serial,
                                      &vector_of_character_vectors, &total_possible_combinations);
-        print_path(&file_name);
-        print_stats(&number_of_serials, &total_possible_combinations);
+        print_path_to_terminal(&file_name);
+        print_stats_to_terminal((&number_of_serials, &total_possible_combinations);
     }
 }
 
@@ -151,11 +151,11 @@ fn increase_index_vector_by(index_vector: &mut [usize], rollover_number: usize,
     }
 }
 
-fn print_path(file_name: &str) {
+fn print_path_to_terminal((file_name: &str) {
     println!("File path: {}", env::current_dir().unwrap().display().to_string() + "/" + file_name);
 }
 
-fn print_stats(number_of_serials: &u128, total_possible_combinations: &u128) {
+fn print_stats_to_terminal((number_of_serials: &u128, total_possible_combinations: &u128) {
     println!("Requested serial number amount: {}", *number_of_serials);
     println!("Total possible serial numbers given current inputs: {}", *total_possible_combinations);
     println!("The printed licenses cover {}% of the total license pool",
