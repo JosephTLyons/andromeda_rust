@@ -10,9 +10,8 @@
 - Can math notation be used in README.md?
 - Fix interface, not clean code, no error checking, should probably be using
   stdin over the crate
+- Clean up how file path is printed, refactor code for it as well
 
 ## New Features:
 
 - Print statistics to terminal (currently broken - may not be possible)
-- Print path to file in terminal (filename is currently being printed, not sure
-  what to do to be able to print the entire path)

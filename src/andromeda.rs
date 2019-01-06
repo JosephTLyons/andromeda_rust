@@ -3,6 +3,7 @@ extern crate rand;
 use andromeda::rand::prelude::*;
 use std::fs::File;
 use std::io::prelude::*;
+use std::env;
 
 pub fn interface() {
     println!("Serial number amount: ");
@@ -117,7 +118,7 @@ fn print_serial_numbers_to_file(number_of_serials: &u128, length_of_serial: usiz
                                  distance_between_serial_numbers);
     }
 
-    println!("Serial numbers printed to file: {}", file_name);
+    println!("File path: {}{}{}", env::current_dir().unwrap().display(), "/", file_name);
 }
 
 // This function is for debugging the program.
