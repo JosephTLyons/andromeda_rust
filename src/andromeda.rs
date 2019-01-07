@@ -41,7 +41,7 @@ fn generate_serial_numbers(number_of_serials: &u128, length_of_serial: usize, nu
     if can_create_serial_numbers(&number_of_serials, length_of_serial,
                                  &total_possible_combinations) {
         let file_name: String = number_of_serials.to_string() + "_unique_serials.txt";
-        
+
         print_serial_numbers_to_file(&file_name, &number_of_serials, length_of_serial,
                                      &vector_of_character_vectors, &total_possible_combinations);
         print_path_to_terminal(&file_name);
