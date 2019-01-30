@@ -110,7 +110,7 @@ fn print_serial_numbers_to_file(file_name: &str, number_of_serials: &u128,
 
         // Write single serial number to file
         single_serial_number_string.push_str("\n");
-        serial_file.write(single_serial_number_string.as_bytes());
+        serial_file.write_all(single_serial_number_string.as_bytes()).unwrap();
         single_serial_number_string.clear();
 
         //print_index_vector(&index_vector);
