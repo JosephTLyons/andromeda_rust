@@ -161,6 +161,11 @@ fn print_path_to_terminal(file_name: &str) {
 fn print_stats_to_terminal(number_of_serials: &u128, total_possible_combinations: &u128) {
     // This is the best solution to Rust not having an f128 data type
     // Simply divide the u128s by 2 (reduce their ratio) and assign them to f64, then divide these
+    // Note: We are ignoring the truncation that can occur when dividing an integer by 2, there is
+    // no other better alternative for now and it is neglible
+
+    // Scrap this, the math is wrong.  u128 / 2 = "u127"
+
     let number_of_serials_f64: f64 = (*number_of_serials / 2) as f64;
     let total_possible_combinations_f64: f64 = (*total_possible_combinations / 2) as f64;
 
