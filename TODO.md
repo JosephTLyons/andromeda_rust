@@ -9,7 +9,3 @@
 - Can math notation be used in README.md?
 - Fix interface, not clean code, no error checking, should probably be using
   stdin over the crate
-
-## New Features:
-
-- Print statistics to terminal (currently broken - may not be possible)

@@ -156,8 +156,13 @@ fn print_path_to_terminal(file_name: &str) {
 }
 
 fn print_stats_to_terminal(number_of_serials: &u128, total_possible_combinations: &u128) {
+    // This is the best solution to Rust not having an f128 data type
+    // Simply divide the u128s by 2 (reduce their ratio) and assign them to f64, then divide these
+    let number_of_serials_f64: f64 = (*number_of_serials / 2) as f64;
+    let total_possible_combinations_f64: f64 = (*total_possible_combinations / 2) as f64;
+
     println!("Requested serial number amount: {}", *number_of_serials);
     println!("Total possible serial numbers given current inputs: {}", *total_possible_combinations);
     println!("The printed licenses cover {}% of the total license pool",
-             (*number_of_serials / *total_possible_combinations) * 100);
+             (number_of_serials_f64 / total_possible_combinations_f64) * 100.0);
 }
