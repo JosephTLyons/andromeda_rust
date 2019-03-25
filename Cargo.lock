@@ -1,6 +1,6 @@
 [[package]]
 name = "andromeda"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "rand 0.5.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "text_io 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
