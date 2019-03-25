@@ -44,6 +44,9 @@ fn generate_serial_numbers(number_of_serials: &u128, length_of_serial: usize, nu
 
         print_serial_numbers_to_file(&file_name, &number_of_serials, length_of_serial,
                                      &vector_of_character_vectors, &total_possible_combinations);
+
+        println!();
+
         print_path_to_terminal(&file_name);
         print_stats_to_terminal(&number_of_serials, &total_possible_combinations);
     }
