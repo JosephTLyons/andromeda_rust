@@ -4,7 +4,6 @@
 - This version of Andromeda is no longer being maintained.  It has bee rewritten
   in Python in order to circumvent unavoidable issues in Rust.
 
-
 ## March 25, 2019 - v1.1.0
 
 1. Fixed the printing of the percentage of the ratio of licenses used versus
