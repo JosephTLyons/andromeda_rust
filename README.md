@@ -1,5 +1,10 @@
 # andromeda
 
+## Note:
+- This version of Andromeda is no longer being maintained.  Version 2.0.0 has
+  been [rewritten in Python](https://github.com/JosephTLyons/andromeda) in order
+  to avoid issues directly related to the Rust implementation.
+
 Quickly create large amounts of unique serial numbers.  Heavily
 inspired by [random code generator](https://www.randomcodegenerator.com/en/generate-serial-numbers).
 
