@@ -1,8 +1,9 @@
 # CHANGELOG:
 
 # Note:
-- This version of Andromeda is no longer being maintained.  It has bee rewritten
-  in Python in order to circumvent unavoidable issues in Rust.
+- This version of Andromeda is no longer being maintained.  It has been
+  [rewritten in Python](https://github.com/JosephTLyons/andromeda) in order to
+  avoid issues directly related to the Rust implementation.
 
 ## March 25, 2019 - v1.1.0
 
